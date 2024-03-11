@@ -46,7 +46,8 @@
 			<td valign="top" th:text="${app.email}"type="text">Email</td>
 			<td valign="top" th:text="${app.date}">Date</td>
 			<form method="POST" th:action="@{/cancel}">
-			<input type="hidden" name="appId" th:value="${app.appId}">
+			<input type="hidden" name="email" th:value="${app.email}">
+      <input type="hidden" name="date" th:value="${app.date}">
 			<td><button type="submit" value="value" class="link-button">Cancel</button></td>
 			</form>
 			<td>

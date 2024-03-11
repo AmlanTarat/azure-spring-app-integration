@@ -12,14 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.microsoft.azure.storage.table.TableServiceException;
 import com.search.app.dto.Doctor;
 import com.search.app.dto.Person;
-import com.search.app.dto.PersonAzure;
 import com.search.app.model.DoctorModel;
 import com.search.app.repository.DoctorRepository;
 import com.search.app.repository.PersonRepository;
-import com.search.app.service.PersonService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -33,53 +30,50 @@ public class AppointmentController{
 	PersonRepository personRepo;
 
 	@Autowired
-	PersonService personService;
-
-	@Autowired
 	DoctorRepository docRepo;
 
-    @RequestMapping("/greeting")
+    @RequestMapping("/greeting1")
     public DoctorModel greetings(@RequestParam(value = "name", defaultValue = "World") String name) {
         
         return new DoctorModel(count.incrementAndGet(), String.format(template, name));
     }
-    @RequestMapping(value = "/register")
+    @RequestMapping(value = "/register1")
 	public String register() {
 		return "register";
 	}
 	
-	@RequestMapping(value = "/registerdoc")
+	@RequestMapping(value = "/registerdoc1")
 	public String registerdoc() {
 		return "registerdoc";
 	}
 
-	@RequestMapping(value = "/registereddoc")
+	@RequestMapping(value = "/registereddoc1")
 	public String registereddoc(Doctor doctor) {
 		docRepo.save(doctor);
 		return "redirect:/";
 	}
 
-	@RequestMapping(value = "/")
+	@RequestMapping(value = "/1")
 	public String home() {
 		return "start";
 	}
 
-	@RequestMapping(value = "/patlog")
+	@RequestMapping(value = "/patlog1")
 	public String patlog() {
 		return "index";
 	}
 
-	@RequestMapping(value = "/doclog")
+	@RequestMapping(value = "/doclog1")
 	public String doclog() {
 		return "doclog";
 	}
 
-	@RequestMapping(value = "/fail_login")
+	@RequestMapping(value = "/fail_login1")
 	public String fail_login() {
 		return "fail_login";
 	}
 
-	@RequestMapping(value = "/authenticate")
+	@RequestMapping(value = "/authenticate1")
 	public String authenticate(Person person,HttpSession session) {
 		if(personRepo.existsById(person.getEmail()) && personRepo.findById(person.getEmail()).get().getPassword().equals(person.getPassword())) {
 			session.setAttribute("person", person.getEmail());
@@ -88,24 +82,13 @@ public class AppointmentController{
 		return "redirect:/fail_login";
 	}
 
-	/*@RequestMapping("/registered")
+	@RequestMapping("/registered1")
 	public String registered(Person person) {
 		personRepo.save(person);
 		return "redirect:/";
-	}*/
-
-	@RequestMapping("/registered")
-	public String registered1(PersonAzure person) throws Exception{
-		try{
-			personService.insertPersonRecord(person);
-		}catch(TableServiceException e){
-			System.err.println(e.getMessage());
-		}
-		
-		return "redirect:/";
 	}
 
-	@RequestMapping(value = "/home")
+	@RequestMapping(value = "/home1")
 	public ModelAndView display(HttpSession session) {
 		ModelAndView mav= new ModelAndView("fail_login");
 		String email = null;
@@ -117,7 +100,7 @@ public class AppointmentController{
 		return mav;
 	}
 
-	@RequestMapping(value = "/docdetails")
+	@RequestMapping(value = "/docdetails1")
 	public ModelAndView DocDetails(HttpSession session) {
 		
 		List<Doctor> doctors = new ArrayList<Doctor>();

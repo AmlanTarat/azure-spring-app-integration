@@ -35,6 +35,7 @@
     <table class="table table-light table-hover">
         <thead class="bg-primary">
           <tr>
+            <th>Patient's Email</th>
             <th>Doctor's Email</th>
             <th>Doctor's Name</th>
             <th>Specialization</th>
@@ -45,12 +46,14 @@
         <tbody>
           <tr valign="top" th:each="app:${appointments}">
 			
+      <td valign="top" th:text="${app.email}"type="text">Email</td>
 			<td valign="top" th:text="${app.docId}"type="text">Id</td>
 			<td valign="top" th:text="${app.docName}">Name</td>
 			<td valign="top" th:text="${app.docSpecial}">Specialization</td>
 			<td valign="top" th:text="${app.date}">Name</td>
 			<form method="POST" th:action="@{/cancel}">
-			<input type="hidden" name="appId" th:value="${app.appId}">
+        <input type="hidden" name="email" th:value="${app.email}">
+        <input type="hidden" name="date" th:value="${app.date}">
 			<td><button type="submit" value="value" class="link-button">Cancel</button></td>
 			</form>
 			<td>

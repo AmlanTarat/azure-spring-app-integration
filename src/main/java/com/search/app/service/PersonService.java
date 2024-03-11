@@ -31,6 +31,22 @@ public class PersonService {
         System.out.println("\tSuccessfully inserted the new entities.");
     }
 
+    public boolean searchPersonRecordbyId(PersonAzure person) throws Exception {
+        tableClientPerson = TableClientProvider.getTableClientReference();
+        tablePerson = createTableIfNotExist(tableClientPerson,tableNamePrefix);
+        System.out.println("\tSuccessfully logged in to the table.");
+        PersonAzure personEntity = new PersonAzure(person.getEmail(), person.getPassword());
+        TableOperation retrievePerson = TableOperation.retrieve(personEntity.getPartitionKey(), personEntity.getRowKey(), PersonAzure.class);
+        PersonAzure personValid = tablePerson.execute(retrievePerson).getResultAsType();
+        if(personValid != null){
+            System.out.println("Retrieved Person details from table storage with email id "+personValid.getPartitionKey());
+            System.out.println("\tSuccessfully retreived the patient entities.");
+            return true;
+        }
+        
+        return false;
+    }
+
      private static CloudTable createTableIfNotExist(CloudTableClient tableClient, String tableName) throws StorageException, RuntimeException, IOException, InvalidKeyException, IllegalArgumentException, URISyntaxException, IllegalStateException {
 
         // Create a new table
