@@ -15,6 +15,8 @@ import com.search.app.dto.AppointmentAzureDelete;
 import com.search.app.dto.AppointmentAzureEntity;
 import com.search.app.dto.DoctorAzureEntity;
 import com.search.app.dto.PersonAzure;
+import com.search.app.messaging.EmailFormat;
+import com.search.app.messaging.Publisher;
 import com.search.app.service.AppointmentService;
 import com.search.app.service.DoctorService;
 import com.search.app.service.PersonService;
@@ -32,6 +34,9 @@ public class AppointmentAzureController{
 
 	@Autowired
 	AppointmentService appointmentService;
+
+	@Autowired
+	EmailFormat emailFormat;
 	
     @RequestMapping(value = "/register")
 	public String register() {
@@ -145,6 +150,11 @@ public class AppointmentAzureController{
 	public String cancel(AppointmentAzureDelete deleteAppointment,HttpSession session) throws Exception{
 		System.out.println("Appointment Delete Param: Email-"+ deleteAppointment.getEmail()+", Date-"+deleteAppointment.getDate()+", DocName-"+deleteAppointment.getDoctorName());
 		appointmentService.deleteAppointmentListByEmailIdAndDate(deleteAppointment);
+		emailFormat = new EmailFormat();
+		emailFormat.setEmailId(deleteAppointment.getEmail());
+		emailFormat.setName(deleteAppointment.getDoctorName());
+		Publisher publisher = new Publisher(emailFormat);
+		publisher.run();
 		session.setAttribute("email", deleteAppointment.getEmail());
 		return "redirect:/userdetails";
 	}

@@ -1,28 +1,20 @@
 package com.search.app;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.jms.annotation.EnableJms;
-import org.springframework.jms.core.JmsTemplate;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @ComponentScan
 @SpringBootApplication(exclude = { SecurityAutoConfiguration.class})
-@EnableJms
 public class HospitalApplication {
 
-    @Autowired
-    public static JmsTemplate jmsTemplate;
-
 	public static void main(String[] args) {
-		ConfigurableApplicationContext context = SpringApplication.run(HospitalApplication.class, args);
-        jmsTemplate = context.getBean(JmsTemplate.class);
+		SpringApplication.run(HospitalApplication.class, args);
+       
     }
 
 	@Configuration
@@ -34,5 +26,15 @@ public class HospitalApplication {
             .setCachePeriod(0);
         }
 	}
+    /*@Configuration
+    public class CredentialManager extends DefaultAzureCredentialBuilder{
+
+        @Bean(name="azureCredentialBuilderFactory")
+        TokenCredential tokenCredential() {
+            return new DefaultAzureCredentialBuilder().build();
+        }
+       
+    }*/
+    
 
 }

@@ -22,6 +22,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-json</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -45,30 +51,41 @@
 		<dependency>
 			<groupId>com.microsoft.azure</groupId>
 			<artifactId>azure-storage</artifactId>
-			<version>4.2.0</version>
+			<version>8.6.6</version>
 			</dependency>
-			<dependency>
+			<!-- <dependency>
 				<groupId>com.azure.spring</groupId>
 				<artifactId>azure-spring-boot-starter-active-directory</artifactId>
-				<version>3.9.0</version> 
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
-			</dependency>
-			<dependency>
+				<version>4.0.0</version>
+				<exclusions>
+					<exclusion>
+						<groupId>io.projectreactor.netty</groupId>
+						<artifactId>reactor-netty</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>-->
+			<!-- <dependency>
+				<groupId>com.azure.spring</groupId>
+				<artifactId>spring-cloud-azure-starter</artifactId>
+			  </dependency>
+			  <dependency>
+				<groupId>com.azure.spring</groupId>
+				<artifactId>spring-messaging-azure-servicebus</artifactId>
+			  </dependency>-->
+			  <dependency>
 				<groupId>com.azure.spring</groupId>
 				<artifactId>spring-cloud-azure-starter-servicebus-jms</artifactId>
-			</dependency>
+			  </dependency>
+			
+			 <!-- <dependency>
+				<groupId>com.azure</groupId>
+				<artifactId>azure-identity</artifactId>
+				<version>1.11.4</version>
+			</dependency>-->
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
-		  <dependency>
-			<groupId>com.azure</groupId>
-			<artifactId>azure-core</artifactId>
-			<version>1.21.0</version>
-			<!-- {x-version-update;com.azure:azure-core;dependency} -->
-		  </dependency>
+		  
 		  <dependency>
 			<groupId>com.azure.spring</groupId>
 			<artifactId>spring-cloud-azure-dependencies</artifactId>
