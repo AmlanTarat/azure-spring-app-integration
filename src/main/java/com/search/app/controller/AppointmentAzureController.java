@@ -143,7 +143,7 @@ public class AppointmentAzureController{
 
 	@RequestMapping("/cancel")
 	public String cancel(AppointmentAzureDelete deleteAppointment,HttpSession session) throws Exception{
-		System.out.println("Appointment Delete Param: Email-"+ deleteAppointment.getEmail()+", Date-"+deleteAppointment.getDate());
+		System.out.println("Appointment Delete Param: Email-"+ deleteAppointment.getEmail()+", Date-"+deleteAppointment.getDate()+", DocName-"+deleteAppointment.getDoctorName());
 		appointmentService.deleteAppointmentListByEmailIdAndDate(deleteAppointment);
 		session.setAttribute("email", deleteAppointment.getEmail());
 		return "redirect:/userdetails";

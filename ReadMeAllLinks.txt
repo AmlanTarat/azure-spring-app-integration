@@ -80,3 +80,41 @@ https://github.com/IterativeEngineering/blog.secure-spring-boot-application-with
 
 How to deploy a webapp from vscode locally
 https://code.visualstudio.com/docs/java/java-webapp
+
+Azure communication service(SMS)
+https://github.com/MoimHossain/azure-communication-servicve-demo
+https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-sms-quickstart
+https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/sms/send?tabs=windows&pivots=platform-azcli
+https://learn.microsoft.com/en-us/java/api/overview/azure/communication-sms-readme?view=azure-java-stable
+https://moimhossain.com/2023/07/26/email-and-sms-with-azure-communication-service-step-by-step/
+https://stackoverflow.com/questions/20218845/how-to-use-rest-api-for-sending-messages-to-azure-notification-hub-from-java-gae
+https://learn.microsoft.com/en-us/azure/communication-services/concepts/telephony/plan-solution
+https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/telephony/get-phone-number?tabs=windows&pivots=platform-azp-new
+
+Azure Email Communication Service
+https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/create-email-communication-resource
+https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/connect-email-communication-resource?pivots=programming-language-java
+
+Azure Service Bus
+https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/using-service-bus-in-spring-applications
+
+Azure Spring App 
+https://learn.microsoft.com/en-us/azure/spring-apps/enterprise/overview
+https://learn.microsoft.com/en-us/azure/spring-apps/basic-standard/quickstart-provision-service-instance?tabs=Azure-portal&pivots=programming-language-java
+provision a spring app services
+https://learn.microsoft.com/en-us/azure/spring-apps/basic-standard/quickstart-provision-service-instance?tabs=Azure-portal&pivots=programming-language-java
+spring cloud config setup
+https://learn.microsoft.com/en-us/azure/spring-apps/basic-standard/quickstart-setup-config-server?tabs=Azure-portal&pivots=programming-language-java
+
+Deploy Spring App
+https://code.visualstudio.com/docs/java/java-spring-apps#_create-an-app-on-azure-spring-apps
+https://learn.microsoft.com/en-us/azure/spring-apps/enterprise/quickstart?tabs=Azure-portal%2CAzure-CLI%2CConsumption-workload&pivots=sc-enterprise
+Azure Storage Queue
+https://learn.microsoft.com/en-us/samples/azure-samples/azure-spring-boot-samples/ending-and-receiving-message-by-azure-storage-queue-and-spring-integration-in-spring-boot-application/
+
+
+Migrate existing springboot
+https://learn.microsoft.com/en-us/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps
+
+Azure Event hub
+https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/using-event-hubs-in-spring-applications

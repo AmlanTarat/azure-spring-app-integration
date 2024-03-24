@@ -86,8 +86,10 @@ public class AppointmentService {
         System.out.println("\tSuccessfully logged in to the table.");
         String partitionFilterEmail =TableQuery.generateFilterCondition("Email", QueryComparisons.EQUAL, appDelete.getEmail());
         String partitionFilterDate =TableQuery.generateFilterCondition("Date", QueryComparisons.EQUAL, appDelete.getDate());
-        String combinedPartitionFilter = TableQuery.combineFilters(partitionFilterEmail, Operators.AND, partitionFilterDate);
-        TableQuery<AppointmentAzureEntity> partitionQuery = TableQuery.from(AppointmentAzureEntity.class).where(combinedPartitionFilter);
+        String partitionFilterDocName =TableQuery.generateFilterCondition("DocName", QueryComparisons.EQUAL, appDelete.getDoctorName());
+        String combinedPartitionFilter1 = TableQuery.combineFilters(partitionFilterEmail, Operators.AND, partitionFilterDate);
+        String combinedPartitionFilter2 = TableQuery.combineFilters(combinedPartitionFilter1, Operators.AND, partitionFilterDocName);
+        TableQuery<AppointmentAzureEntity> partitionQuery = TableQuery.from(AppointmentAzureEntity.class).where(combinedPartitionFilter2);
         for (AppointmentAzureEntity entity : tableAppointment.execute(partitionQuery)) {
             TableOperation deleteEntity = TableOperation.delete(entity);
             tableAppointment.execute(deleteEntity);
