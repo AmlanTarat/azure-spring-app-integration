@@ -113,6 +113,8 @@ Azure Storage Queue
 https://learn.microsoft.com/en-us/samples/azure-samples/azure-spring-boot-samples/ending-and-receiving-message-by-azure-storage-queue-and-spring-integration-in-spring-boot-application/
 https://github.com/MicrosoftDocs/azure-dev-docs/blob/main/articles/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus.md
 
+JMSLisnteer Issue
+https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus?tabs=use-a-service-bus-queue%2Cpasswordless
 Migrate existing springboot
 https://learn.microsoft.com/en-us/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps
 

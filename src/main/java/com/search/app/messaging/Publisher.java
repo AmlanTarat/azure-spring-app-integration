@@ -1,5 +1,6 @@
 package com.search.app.messaging;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +15,7 @@ public class Publisher implements CommandLineRunner{
     EmailFormat emailFormat;
 
     @Autowired
-    private JmsTemplate  jmsTemplate;
+    JmsTemplate  jmsTemplate;
 
     private static final String TOPIC_NAME = "email_topic";
 
@@ -26,6 +27,7 @@ public class Publisher implements CommandLineRunner{
     public void run(String... args) throws Exception {
         System.out.println("Sending Message to TOPIC"+ emailFormat);
         //serviceBusTemplate.sendAsync(TOPIC_NAME, MessageBuilder.withPayload(emailFormat).build());
+        //JmsTemplate  jmsTemplate = context.getBean(JmsTemplate.class);
         jmsTemplate.convertAndSend(TOPIC_NAME, emailFormat.toString());
         System.out.println("Message sent to TOPIC"+ emailFormat);
     }

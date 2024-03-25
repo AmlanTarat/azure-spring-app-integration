@@ -114,7 +114,7 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
+			<!--  <plugin>
 				<groupId>com.microsoft.azure</groupId>
 				<artifactId>>azure-webapp-maven-plugin</artifactId>
 				<version>2.13.0</version>
@@ -122,6 +122,15 @@
 					<schemaVersion>v2</schemaVersion>
 					<resourceGroup>52065057-Atul</resourceGroup>
 					<appName>amlandoctorappointment</appName>
+				</configuration>
+			</plugin>-->
+			<plugin>
+				<groupId>com.microsoft.azure</groupId>
+				<artifactId>azure-spring-apps-maven-plugin</artifactId>
+				<version>1.19.0</version>
+				<configuration>
+					<subscriptionId>89980a5e-2dc3-4cf3-b5e7-a668f7a441c5</subscriptionId>
+					<appName>hospitalapp</appName>
 				</configuration>
 			</plugin>
 		</plugins>
