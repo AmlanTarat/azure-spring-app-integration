@@ -115,6 +115,14 @@ https://github.com/MicrosoftDocs/azure-dev-docs/blob/main/articles/java/spring-f
 
 JMSLisnteer Issue
 https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus?tabs=use-a-service-bus-queue%2Cpasswordless
+https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus?tabs=use-a-service-bus-queue%2Cpasswordless
+
+CredentialUnavailableException
+https://learn.microsoft.com/en-us/azure/service-bus-messaging/authenticate-application
+
+Premium tier service bus
+https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp
+
 Migrate existing springboot
 https://learn.microsoft.com/en-us/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps
 

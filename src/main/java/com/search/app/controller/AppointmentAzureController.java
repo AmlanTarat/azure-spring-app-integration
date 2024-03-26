@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,6 +38,9 @@ public class AppointmentAzureController{
 
 	@Autowired
 	EmailFormat emailFormat;
+
+	@Autowired
+	JmsTemplate jmsTemplate;
 	
     @RequestMapping(value = "/register")
 	public String register() {
@@ -153,8 +157,9 @@ public class AppointmentAzureController{
 		emailFormat = new EmailFormat();
 		emailFormat.setEmailId(deleteAppointment.getEmail());
 		emailFormat.setName(deleteAppointment.getDoctorName());
+		System.out.println("JmsTEmplate in controller**"+jmsTemplate);
 		Publisher publisher = new Publisher(emailFormat);
-		publisher.run();
+		publisher.publish(jmsTemplate);
 		session.setAttribute("email", deleteAppointment.getEmail());
 		return "redirect:/userdetails";
 	}
