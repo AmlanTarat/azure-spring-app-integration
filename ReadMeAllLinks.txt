@@ -128,3 +128,7 @@ https://learn.microsoft.com/en-us/azure/developer/java/migration/migrate-spring-
 
 Azure Event hub
 https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/using-event-hubs-in-spring-applications
+
+
+TroubleShoot
+https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/identity/azure-identity/TROUBLESHOOTING.md

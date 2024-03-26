@@ -5,12 +5,12 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.azure.spring.messaging.servicebus.core.ServiceBusTemplate;
 import com.microsoft.azure.storage.table.TableServiceException;
 import com.search.app.dto.AppointmentAzureDelete;
 import com.search.app.dto.AppointmentAzureEntity;
@@ -40,7 +40,7 @@ public class AppointmentAzureController{
 	EmailFormat emailFormat;
 
 	@Autowired
-	JmsTemplate jmsTemplate;
+	ServiceBusTemplate jmsTemplate;
 	
     @RequestMapping(value = "/register")
 	public String register() {

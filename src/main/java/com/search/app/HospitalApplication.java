@@ -5,13 +5,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.jms.annotation.EnableJms;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import com.azure.spring.messaging.implementation.annotation.EnableAzureMessaging;
+
 @ComponentScan
 @SpringBootApplication(exclude = { SecurityAutoConfiguration.class})
-@EnableJms
+@EnableAzureMessaging
 public class HospitalApplication {
 
 	public static void main(String[] args) {
