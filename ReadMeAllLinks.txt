@@ -94,6 +94,7 @@ https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/telep
 Azure Email Communication Service
 https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/create-email-communication-resource
 https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/connect-email-communication-resource?pivots=programming-language-java
+https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/send-email?tabs=windows%2Cconnection-string&pivots=programming-language-java
 
 Azure Service Bus
 https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/using-service-bus-in-spring-applications

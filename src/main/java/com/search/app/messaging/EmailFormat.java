@@ -9,20 +9,28 @@ public class EmailFormat /*implements Serializable*/{
 
    // private static final long serialVersionUID = -295422703255886286L;
     
-    public String name;
-    public String emailId;
+    public String date;
+    public String email;
+    public String doctorName;
 
-    public String getName() {
-        return name;
+    public String getDate() {
+        return date;
     }
-    public void setName(String name) {
-        this.name = name;
+    public void setDate(String date) {
+        this.date = date;
     }
     public String getEmailId() {
-        return emailId;
+        return email;
     }
     public void setEmailId(String emailId) {
-        this.emailId = emailId;
+        this.email = emailId;
+    }
+
+    public String getDoctorName() {
+        return doctorName;
+    }
+    public void setDoctorName(String doctorName) {
+        this.doctorName = doctorName;
     }
     
 }

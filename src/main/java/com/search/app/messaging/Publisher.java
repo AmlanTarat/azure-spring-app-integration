@@ -40,7 +40,9 @@ public class Publisher {
         //serviceBusTemplate.sendAsync(TOPIC_NAME, MessageBuilder.withPayload(emailFormat).build());
         //JmsTemplate  jmsTemplate = context.getBean(JmsTemplate.class);
         System.out.println("JMS Template in publish method***"+jmsTemplate);
-        jmsTemplate1.sendAsync(TOPIC_NAME, MessageBuilder.withPayload("Hello world").build()).subscribe();
+        jmsTemplate1.sendAsync(TOPIC_NAME, 
+        MessageBuilder.withPayload(emailFormat.getEmailId()+","+emailFormat.getDoctorName()+","+emailFormat.getDate())
+        .build()).subscribe();
         
         System.out.println("Message sent to TOPIC"+ emailFormat);
     }

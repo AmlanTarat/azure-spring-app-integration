@@ -156,7 +156,8 @@ public class AppointmentAzureController{
 		appointmentService.deleteAppointmentListByEmailIdAndDate(deleteAppointment);
 		emailFormat = new EmailFormat();
 		emailFormat.setEmailId(deleteAppointment.getEmail());
-		emailFormat.setName(deleteAppointment.getDoctorName());
+		emailFormat.setDate(deleteAppointment.getDate());
+		emailFormat.setDoctorName(deleteAppointment.getDoctorName());
 		System.out.println("JmsTEmplate in controller**"+jmsTemplate);
 		Publisher publisher = new Publisher(emailFormat);
 		publisher.publish(jmsTemplate);
