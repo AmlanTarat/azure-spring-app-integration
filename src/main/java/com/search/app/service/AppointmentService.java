@@ -53,10 +53,10 @@ public class AppointmentService {
         List<AppointmentAzureEntity> appointmentEntityList = new ArrayList<>();
         for (AppointmentAzureEntity entity : tableAppointment.execute(partitionQuery)) {
             appointmentEntityList.add(entity);
-        System.out.println(entity.getPartitionKey() +
+        System.out.println("*****PatientList retrieved from table*****"+"\t"+entity.getPartitionKey() +
             " " + entity.getRowKey() +
             "\t" + entity.getAppId() +
-            "\t" + entity.getEmail());
+            "\t" + entity.getEmail()+"\t" + entity.getDocName());
         }
         System.out.println("\tSuccessfully retreived the patient list entities.");
         return appointmentEntityList;
@@ -86,7 +86,7 @@ public class AppointmentService {
         System.out.println("\tSuccessfully logged in to the table.");
         String partitionFilterEmail =TableQuery.generateFilterCondition("Email", QueryComparisons.EQUAL, appDelete.getEmail());
         String partitionFilterDate =TableQuery.generateFilterCondition("Date", QueryComparisons.EQUAL, appDelete.getDate());
-        String partitionFilterDocName =TableQuery.generateFilterCondition("DocName", QueryComparisons.EQUAL, appDelete.getDoctorName());
+        String partitionFilterDocName =TableQuery.generateFilterCondition("DocName", QueryComparisons.EQUAL, appDelete.getDocName());
         String combinedPartitionFilter1 = TableQuery.combineFilters(partitionFilterEmail, Operators.AND, partitionFilterDate);
         String combinedPartitionFilter2 = TableQuery.combineFilters(combinedPartitionFilter1, Operators.AND, partitionFilterDocName);
         TableQuery<AppointmentAzureEntity> partitionQuery = TableQuery.from(AppointmentAzureEntity.class).where(combinedPartitionFilter2);

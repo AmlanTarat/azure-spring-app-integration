@@ -10,7 +10,7 @@ public class AppointmentAzureDelete {
     @Id
     private String email;
 	private String date;
-	private String doctorName;
+	private String docName;
 
     public AppointmentAzureDelete(){    }
 
@@ -26,11 +26,11 @@ public class AppointmentAzureDelete {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	public String getDoctorName() {
-		return doctorName;
+	public String getDocName() {
+		return docName;
 	}
-	public void setDoctorName(String doctorName) {
-		this.doctorName = doctorName;
+	public void setDocName(String docName) {
+		this.docName = docName;
 	}
     
 }

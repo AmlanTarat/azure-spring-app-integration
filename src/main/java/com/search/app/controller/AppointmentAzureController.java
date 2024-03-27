@@ -152,12 +152,12 @@ public class AppointmentAzureController{
 
 	@RequestMapping("/cancel")
 	public String cancel(AppointmentAzureDelete deleteAppointment,HttpSession session) throws Exception{
-		System.out.println("Appointment Delete Param: Email-"+ deleteAppointment.getEmail()+", Date-"+deleteAppointment.getDate()+", DocName-"+deleteAppointment.getDoctorName());
+		System.out.println("Appointment Delete Param from UI: Email-"+ deleteAppointment.getEmail()+", Date-"+deleteAppointment.getDate()+", DocName-"+deleteAppointment.getDocName());
 		appointmentService.deleteAppointmentListByEmailIdAndDate(deleteAppointment);
 		emailFormat = new EmailFormat();
 		emailFormat.setEmailId(deleteAppointment.getEmail());
 		emailFormat.setDate(deleteAppointment.getDate());
-		emailFormat.setDoctorName(deleteAppointment.getDoctorName());
+		emailFormat.setDoctorName(deleteAppointment.getDocName());
 		System.out.println("JmsTEmplate in controller**"+jmsTemplate);
 		Publisher publisher = new Publisher(emailFormat);
 		publisher.publish(jmsTemplate);
